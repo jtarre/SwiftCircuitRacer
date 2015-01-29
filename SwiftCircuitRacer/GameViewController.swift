@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 
+// don't understand any of this
 extension SKNode {
     class func unarchiveFromFile(file : NSString) -> SKNode? {
         if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
@@ -32,6 +33,8 @@ class GameViewController: UIViewController {
     var carType: CarType!
     var levelType: LevelType!
     
+    // why does he use ! above and ? below
+    // ? for optionals, ! for known values
     var noOfCars: Int?
     var networkingEngine: MultiplayerNetworking?
     
@@ -41,8 +44,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // http://stackoverflow.com/questions/27079465/what-is-the-as-keyword-in-swift
+        // as used for type casting
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
+            // sprite kit not going to apply to me
             let skView = self.view as SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
@@ -61,6 +67,8 @@ class GameViewController: UIViewController {
                     scene.levelType = LevelType.Easy
                     scene.noOfCars = nrOfCars
                     
+                    // looks like more setting of the scene
+                    // is multiplayernetworking built in?
                     networkingEngine = MultiplayerNetworking()
                     networkingEngine!.noOfLaps = 5
                     networkingEngine!.delegate = scene
@@ -72,12 +80,14 @@ class GameViewController: UIViewController {
                 }
             }
             
+            // two more methods, don't know source or what they do
             skView.presentScene(scene)
             skView.showsPhysics = true
             
             let padSide: CGFloat = view.frame.size.height / 2.5
             let padPadding: CGFloat = view.frame.size.height / 32
             
+            what's an analog control? 
             analogControl = AnalogControl(frame: CGRectMake(padPadding,
                 skView.frame.size.height - padPadding - padSide,
                 padSide,
@@ -91,7 +101,9 @@ class GameViewController: UIViewController {
             scene.gameEndedBlock = goBack
         }
     }
-
+    
+    // game over functionality
+    // equivalent in moviescores?
     func gameOverWithWin(didWin: Bool) {
         let alert = UIAlertController(title: didWin ? "You won!" : "You lost",
             message: "Game Over",
