@@ -16,6 +16,7 @@ class CircuitRacerNavigationController: UINavigationController {
             name: PresentAuthenticationViewController,
             object: nil)
         
+        // a main driver in this file
         GameKitHelper.sharedInstance.authenticateLocalPlayer()
         super.viewDidLoad()
     }
@@ -25,6 +26,7 @@ class CircuitRacerNavigationController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
+    // need to look at the GameKitHelper file
     func showAuthenticationViewController() {
         let gameKitHelper = GameKitHelper.sharedInstance
         
@@ -35,6 +37,7 @@ class CircuitRacerNavigationController: UINavigationController {
         }
     }
     
+    // why the deinit?
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
