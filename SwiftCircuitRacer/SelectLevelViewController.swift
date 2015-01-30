@@ -14,6 +14,19 @@ class SelectLevelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // like doesn't need to load anything because he's added button
+        // to the story board, or several buttons. 
+        // i think, car viewcontroller button has 4 color choices. 
+        // level choices equal easy, medium, or hard. 
+        // once you've made those choices, 
+        // the game starts
+        
+        // i like font game style more.
+        // set difficulty in settings. more rapid game play. 
+        
+        // i'll likely jump right from "home screen controller" or equivalent
+        // to game view controller or equivalent
+        // and will have to load whatever variables need loading into game. 
         // Do any additional setup after loading the view.
     }
 
