@@ -44,9 +44,18 @@ class HomeScreenViewController: UIViewController {
         }
         SKTAudio.sharedInstance().playSoundEffect("button_press.wav")
         
+        // storyboard = main storyboard in app? 
+        // if it exists, set to constant, then instantiate the GameViewController as type GameViewController
+        // without the "as", what would the code think was the type? 
         if let storyboard = storyboard {
             let gameViewController = storyboard.instantiateViewControllerWithIdentifier("GameViewController") as GameViewController
+            
+            // sets number of cars, I imagine it means the number competing
             gameViewController.noOfCars = 2
+            
+            // navigationControlle could be nil. if it's not, pushViewController
+            // what happens when you want to go back to home screen? 
+            // how do we know the gameViewController was not already on the stack? 
             navigationController?.pushViewController(gameViewController, animated: false)
         }
     }
