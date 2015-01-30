@@ -33,7 +33,18 @@ class SelectCarViewController: UIViewController {
         
         let levelViewController = self.storyboard!.instantiateViewControllerWithIdentifier("SelectLevelViewController") as SelectLevelViewController
         
+        // likely in this view, you're choosing which car you want to use
+        // would make sense as "selectCarViewController" lolz. 
         levelViewController.carType = CarType.fromRaw(sender.tag)!
+        
+        // pattern, when he wants to push new controller, he instantiates as a constant first
+        // then, he uses navigation controller to push. 
+        // i wonder what this looks like
+        // and it's difficult to keep track of the ? and !s
+        
+        // i know it's obvious, but so far, each different screen of this game has
+        // had it's own view controller. and the code has been tight and focused, and 
+        // short. I'm trying to remember how we did it in class. 
         navigationController!.pushViewController(levelViewController, animated: true)
     }
     
